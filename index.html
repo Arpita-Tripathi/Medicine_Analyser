@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MedSphere</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background Elements -->
+  <div class="background-elements">
+    <canvas id="particle-bg"></canvas>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src="WhatsApp_Image_2025-04-16_at_16.40.26_33140fdd-removebg-preview (1).png" alt="MedSphere Logo" class="logo" />
+      <span class="site-name">MedSphere</span>
+    </div>
+    <div class="navbar-center">
+      <a href="#" class="nav-item">Related Drugs</a>
+      <a href="#" class="nav-item">Price Comparison</a>
+      <a href="#" class="nav-item">Similar Drugs</a>
+      <a href="#" class="nav-item">Description</a>
+    </div>
+    <div class="navbar-right">
+      <a href="#" class="nav-link">Register</a>
+      <a href="#" class="nav-link">Sign In</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="search-container">
+      <h1 class="search-title">Find Drugs & Conditions</h1>
+      <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Enter a drug name, condition, pill imprint, etc." autocomplete="off" />
+        <button class="search-button">🔍</button>
+      </div>
+      <div class="search-suggestions"></div>
+      <div class="search-results"></div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
