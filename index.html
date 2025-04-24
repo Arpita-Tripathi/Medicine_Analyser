@@ -1,51 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MedSphere</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Revolution&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sixtyfour+Convergence&family=Tiny5&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bg.css">
+    <link rel="stylesheet" href="loader.css">
+
+
 </head>
+
 <body>
-  <!-- Background Elements -->
-  <div class="background-elements">
-    <canvas id="particle-bg"></canvas>
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
-  </div>
+    <div id="preloader">
+        <div class="pl">
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__text">Loading…</div>
+        </div>
+    </div>
+    <div id="main-content">
+        <div class="background">
+            <div class="context">
+                <!-- <h1>Pure Css Animated Background</h1> -->
+            </div>
+            <div class="area">
+                <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="layer-blur"></div>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="navbar-left">
-      <img src="WhatsApp_Image_2025-04-16_at_16.40.26_33140fdd-removebg-preview (1).png" alt="MedSphere Logo" class="logo" />
-      <span class="site-name">MedSphere</span>
-    </div>
-    <div class="navbar-center">
-      <a href="#" class="nav-item">Related Drugs</a>
-      <a href="#" class="nav-item">Price Comparison</a>
-      <a href="#" class="nav-item">Similar Drugs</a>
-      <a href="#" class="nav-item">Description</a>
-    </div>
-    <div class="navbar-right">
-      <a href="#" class="nav-link">Register</a>
-      <a href="#" class="nav-link">Sign In</a>
-    </div>
-  </nav>
+        <header>
+            <nav>
+                <div class="sidebar">
+                    <div class="logo-content">
+                        <div class="logo">
+                            <img src="logo.png" alt="" class="log">
+                            <span>MedSphere</span>
+                            <i class='bx bx-menu' id="btn"></i>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><a href="">
+                                <i class='bx bx-home-smile'></i>
+                                <span class="nav-item">Home</span>
+                            </a></li>
+                        <li><a href="">
+                                <i class='bx bxs-contact'></i>
+                                <span class="nav-item">About</span>
+                            </a></li>
+                        <li><a href="">
+                                <i class='bx bx-analyse'></i>
+                                <span class="nav-item">Medicine Analyzer</span>
+                            </a></li>
+                        <li><a href="">
+                                <i class='bx bxs-color'></i>
+                                <span class="nav-item">Learn More</span>
+                            </a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="home-content">
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <div class="search-container">
-      <h1 class="search-title">Find Drugs & Conditions</h1>
-      <div class="search-bar">
-        <input type="text" class="search-input" placeholder="Enter a drug name, condition, pill imprint, etc." autocomplete="off" />
-        <button class="search-button">🔍</button>
-      </div>
-      <div class="search-suggestions"></div>
-      <div class="search-results"></div>
-    </div>
-  </main>
+                <div class="header">
+                    <div class="tag-box">
+                        <div class="tag">Introducing &wedbar;</div>
+                    </div>
+                    <h1 id="first_tag">From Generic to Brand <br>— Your Drug Insights Start Here.</h1>
+                    <!-- <h1 id="second_tag">Drugs and Medications</h1> -->
+                    <p style="max-width: 56%;">Unlock clarity in your prescriptions — from generic to brand, we connect
+                        the dots for you.</p>
+                    <div class="buttons">
+                        <button>
+                            <a href="#main_content">Get Started &gt;</a>
 
-  <script src="script.js"></script>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="image-container">
+                    <img src="test-tube.png" alt="" id="first-img">
+                    <img src="Bottle.png" alt="" id="second-img">
+                </div>
+            </div>
+
+        </header>
+        <section id="main_content">
+            <div class="main-heading">
+                <h3>Get Alternate Medicines</h3>
+            </div>
+            <div class="searchBox">
+                <input class="searchInput" type="text" name="" placeholder="Search" id="med-input">
+                <button class="searchButton" href="#" id="btn-search">
+                    <i class='bx bx-search'></i>
+                </button>
+            </div>
+            <div id="results" style="color: white; height: 50vh; width: 80vh;">
+
+            </div>
+            
+        </section>
+    </div>
 </body>
+<script src="script.js"></script>
 </html>
