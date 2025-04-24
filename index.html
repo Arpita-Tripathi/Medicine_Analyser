@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Revolution&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sixtyfour+Convergence&family=Tiny5&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bg.css">
+    <link rel="stylesheet" href="loader.css">
+
+
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="pl">
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__dot"></div>
+            <div class="pl__text">Loading…</div>
+        </div>
+    </div>
+    <div id="main-content">
+        <div class="background">
+            <div class="context">
+                <!-- <h1>Pure Css Animated Background</h1> -->
+            </div>
+            <div class="area">
+                <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="layer-blur"></div>
+
+        <header>
+            <nav>
+                <div class="sidebar">
+                    <div class="logo-content">
+                        <div class="logo">
+                            <img src="logo.png" alt="" class="log">
+                            <span>MedSphere</span>
+                            <i class='bx bx-menu' id="btn"></i>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><a href="">
+                                <i class='bx bx-home-smile'></i>
+                                <span class="nav-item">Home</span>
+                            </a></li>
+                        <li><a href="">
+                                <i class='bx bxs-contact'></i>
+                                <span class="nav-item">About</span>
+                            </a></li>
+                        <li><a href="">
+                                <i class='bx bx-analyse'></i>
+                                <span class="nav-item">Medicine Analyzer</span>
+                            </a></li>
+                        <li><a href="">
+                                <i class='bx bxs-color'></i>
+                                <span class="nav-item">Learn More</span>
+                            </a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="home-content">
+
+                <div class="header">
+                    <div class="tag-box">
+                        <div class="tag">Introducing &wedbar;</div>
+                    </div>
+                    <h1 id="first_tag">From Generic to Brand <br>— Your Drug Insights Start Here.</h1>
+                    <!-- <h1 id="second_tag">Drugs and Medications</h1> -->
+                    <p style="max-width: 56%;">Unlock clarity in your prescriptions — from generic to brand, we connect
+                        the dots for you.</p>
+                    <div class="buttons">
+                        <button>
+                            <a href="#main_content">Get Started &gt;</a>
+
+                        </button>
+                    </div>
+                </div>
+
+                <div id="image-container">
+                    <img src="test-tube.png" alt="" id="first-img">
+                    <img src="Bottle.png" alt="" id="second-img">
+                </div>
+            </div>
+
+        </header>
+        <section id="main_content">
+            <div class="main-heading">
+                <h3>Get Alternate Medicines</h3>
+            </div>
+            <div class="searchBox">
+                <input class="searchInput" type="text" name="" placeholder="Search" id="med-input">
+                <button class="searchButton" href="#" id="btn-search">
+                    <i class='bx bx-search'></i>
+                </button>
+            </div>
+            <div id="results" style="color: white; height: 50vh; width: 80vh;">
+
+            </div>
+            
+        </section>
+    </div>
+</body>
+<script>
+    let btn = document.querySelector("#btn")
+    let sidebar = document.querySelector(".sidebar")
+    let navItems = document.querySelectorAll(".nav-item")
+    btn.onclick = function () {
+        sidebar.classList.toggle("active")
+        navItems.forEach(item => {
+            item.classList.toggle("active");
+        });
+    }
+    window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        const content = document.getElementById('main-content');
+
+        preloader.classList.add('hidden');
+        setTimeout(() => {
+            preloader.style.display = 'none';
+            content.style.display = 'block';
+        }, 500); // match transition duration
+    });
+    document.getElementById("btn-search").addEventListener("click", () => {
+        const medName = document.getElementById("med-input").value;
+        const resultsDiv = document.getElementById("results");
+
+        if (!medName) {
+            resultsDiv.innerHTML = "<p>Please enter a medicine name.</p>";
+            return;
+        }
+
+        fetch(`http://127.0.0.1:8000/get_similar?name=${encodeURIComponent(medName)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    resultsDiv.innerHTML = `<p>${data.error}</p>`;
+                } else {
+                    const meds = data.similar_medicines;
+                    resultsDiv.innerHTML = meds.map(med => `
+                        <div style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+                            <strong>Name:</strong> ${med.name}<br>
+                            <strong>Generic Name:</strong> ${med.generic_name}<br>
+                            <strong>Indication:</strong> ${med.indication}
+                        </div>
+                    `).join('');
+                }
+            })
+            .catch(err => {
+                resultsDiv.innerHTML = `<p>Something went wrong: ${err}</p>`;
+            });
+    });
+    
+
+</script>
+
+</html>
